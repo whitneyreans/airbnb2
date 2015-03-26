@@ -1,0 +1,16 @@
+NEW LISTING STUFF
+
+<%= form_for [@user, @listing] do |f| %>
+  <%=f.label :title %>
+  <%=f.text_field :title %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%=f.label :info %>
+  <%=f.text_field :info %>
+  <%=f.label :image %>
+  <%=f.file_field :image %>
+
+  <%=f.submit "Sign Up" %>
+<% end %>
+
+Add a picture:

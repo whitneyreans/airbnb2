@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Airbnb</title>
+  <%= stylesheet_link_tag "styles" %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Questrial|Noto+Sans|Poiret+One|Quicksand|Petit+Formal+Script|Josefin+Sans|Raleway|Montserrat|Oxygen|Fjalla+One|Chivo|Gruppo' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class= "nav">
+    <% if user_signed_in? %>
+      <%= link_to "Home", users_path, class: 'link' %>
+      <%= link_to "Log Out", destroy_user_session_path, :method => :delete, class: 'link' %>
+      <%= link_to "Your Profile", user_path(current_user), class: 'links'%>
+      <%= link_to "List Your Space", new_user_listing_path(current_user), class: 'links' %>
+      <% else %>
+      <%= link_to "Sign Up", new_user_registration_path, class: 'links' %>
+      <%= link_to "Log In", new_user_session_path, class: 'links' %>
+      <% end %>
+
+    </div>
+
+
+
+<%= yield %>
+
+</body>
+</html>

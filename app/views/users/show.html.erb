@@ -1,0 +1,19 @@
+this is a user's page.
+
+<%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
+<%= link_to "Home", users_path %>
+
+<br>
+<br>
+Add a listing
+
+<%= link_to "Add Listing", new_user_listing_path(current_user) %>
+
+
+<% if current_user.listings.any? %>
+  <% current_user.listings.each do |listing| %>
+  <ul>
+    <li><%= link_to listing.title, listing_path(listing) %> </li>
+</ul>
+  <% end %>
+<% end %>
